@@ -1,0 +1,3 @@
+﻿Module getHardwareInformations
+
+End Module
