@@ -10,10 +10,12 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim ofd As New OpenFileDialog
+        With ofd
+            .Filter = "Zip files (.zip)|*.zip"
+        End With
         If ofd.ShowDialog = DialogResult.OK Then
             ListBox1.Items.Add(ofd.SafeFileName)
         End If
-
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -34,5 +36,14 @@ Public Class Form1
             My.Settings.Save()
             My.Settings.Reload()
         End If
+    End Sub
+
+    Private Sub MetroButton1_Click(sender As Object, e As EventArgs) Handles MetroButton1.Click
+        MetroButton1.Visible = False
+        MetroProgressSpinner1.Visible = True
+        MetroLabel9.Visible = True
+        Label1.Visible = False
+
+        MessageBox.Show("CPU Name: " & getHardwareInformations.cpu & " - " & "CPU Speed: " & getHardwareInformations.cpuSpeed & " MHz" & " - " & "CPU Cores: " & getHardwareInformations.cpuCores & "x" & " - " & "CPU Vendor: " & getHardwareInformations.cpuVendorID & " - " & "CPU Identifier: " & getHardwareInformations.cpuIdentifier & "Graphics Card: " & getHardwareInformations.graphicCard & " - " & "RAM (in GB): " & getHardwareInformations.totalRam)
     End Sub
 End Class

@@ -52,6 +52,8 @@ Partial Class Form1
         Me.HelpTooltip = New MetroFramework.Components.MetroToolTip()
         Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
         Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
+        Me.MetroProgressSpinner1 = New MetroFramework.Controls.MetroProgressSpinner()
+        Me.MetroLabel9 = New MetroFramework.Controls.MetroLabel()
         Me.MetroTabControl1.SuspendLayout()
         Me.MetroTabPage1.SuspendLayout()
         Me.MetroTabPage2.SuspendLayout()
@@ -83,7 +85,7 @@ Partial Class Form1
         Me.MetroTabControl1.Controls.Add(Me.MetroTabPage5)
         Me.MetroTabControl1.Location = New System.Drawing.Point(23, 63)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 4
+        Me.MetroTabControl1.SelectedIndex = 3
         Me.MetroTabControl1.Size = New System.Drawing.Size(716, 344)
         Me.MetroTabControl1.Style = MetroFramework.MetroColorStyle.White
         Me.MetroTabControl1.TabIndex = 1
@@ -129,13 +131,13 @@ Partial Class Form1
         '
         Me.MetroTabPage2.Controls.Add(Me.Panel2)
         Me.MetroTabPage2.Controls.Add(Me.Panel1)
-        Me.MetroTabPage2.HorizontalScrollbarBarColor = True
+        Me.MetroTabPage2.HorizontalScrollbarSize = 0
         Me.MetroTabPage2.Location = New System.Drawing.Point(4, 35)
         Me.MetroTabPage2.Name = "MetroTabPage2"
         Me.MetroTabPage2.Size = New System.Drawing.Size(708, 305)
         Me.MetroTabPage2.TabIndex = 1
         Me.MetroTabPage2.Text = "Shader Installer"
-        Me.MetroTabPage2.VerticalScrollbarBarColor = True
+        Me.MetroTabPage2.VerticalScrollbarSize = 0
         '
         'Panel2
         '
@@ -243,6 +245,8 @@ Partial Class Form1
         'MetroTabPage4
         '
         Me.MetroTabPage4.BackColor = System.Drawing.Color.Transparent
+        Me.MetroTabPage4.Controls.Add(Me.MetroLabel9)
+        Me.MetroTabPage4.Controls.Add(Me.MetroProgressSpinner1)
         Me.MetroTabPage4.Controls.Add(Me.MetroButton1)
         Me.MetroTabPage4.Controls.Add(Me.Label1)
         Me.MetroTabPage4.Controls.Add(Me.MetroLabel3)
@@ -364,6 +368,28 @@ Partial Class Form1
         Me.MetroButton2.TabIndex = 8
         Me.MetroButton2.Text = "Select Minecraft Installation Path"
         '
+        'MetroProgressSpinner1
+        '
+        Me.MetroProgressSpinner1.Location = New System.Drawing.Point(332, 130)
+        Me.MetroProgressSpinner1.Maximum = 100
+        Me.MetroProgressSpinner1.Name = "MetroProgressSpinner1"
+        Me.MetroProgressSpinner1.Size = New System.Drawing.Size(45, 45)
+        Me.MetroProgressSpinner1.Speed = 2.0!
+        Me.MetroProgressSpinner1.Style = MetroFramework.MetroColorStyle.Blue
+        Me.MetroProgressSpinner1.TabIndex = 6
+        Me.MetroProgressSpinner1.Value = 35
+        Me.MetroProgressSpinner1.Visible = False
+        '
+        'MetroLabel9
+        '
+        Me.MetroLabel9.AutoSize = True
+        Me.MetroLabel9.Location = New System.Drawing.Point(131, 178)
+        Me.MetroLabel9.Name = "MetroLabel9"
+        Me.MetroLabel9.Size = New System.Drawing.Size(446, 19)
+        Me.MetroLabel9.TabIndex = 7
+        Me.MetroLabel9.Text = "Please wait while MSIC gets the Hardware Informations of your Computer..."
+        Me.MetroLabel9.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -426,4 +452,6 @@ Partial Class Form1
     Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel7 As MetroFramework.Controls.MetroLabel
     Friend WithEvents HelpTooltip As MetroFramework.Components.MetroToolTip
+    Friend WithEvents MetroLabel9 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents MetroProgressSpinner1 As MetroFramework.Controls.MetroProgressSpinner
 End Class
