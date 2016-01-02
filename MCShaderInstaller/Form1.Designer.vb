@@ -25,10 +25,10 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroTabControl1 = New MetroFramework.Controls.MetroTabControl()
-        Me.MetroTabPage1 = New MetroFramework.Controls.MetroTabPage()
+        Me.startPage = New MetroFramework.Controls.MetroTabPage()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.MetroTabPage2 = New MetroFramework.Controls.MetroTabPage()
+        Me.shaderInstallerPage = New MetroFramework.Controls.MetroTabPage()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -37,31 +37,26 @@ Partial Class Form1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroTabPage3 = New MetroFramework.Controls.MetroTabPage()
-        Me.MetroTabPage4 = New MetroFramework.Controls.MetroTabPage()
-        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroStyleManager1 = New MetroFramework.Components.MetroStyleManager(Me.components)
-        Me.MetroStyleExtender1 = New MetroFramework.Components.MetroStyleExtender(Me.components)
-        Me.MetroTabPage5 = New MetroFramework.Controls.MetroTabPage()
+        Me.shaderDownloaderPage = New MetroFramework.Controls.MetroTabPage()
+        Me.settingsPage = New MetroFramework.Controls.MetroTabPage()
+        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
+        Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
+        Me.MetroLabel8 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel6 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel7 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroLabel8 = New MetroFramework.Controls.MetroLabel()
+        Me.MetroStyleManager1 = New MetroFramework.Components.MetroStyleManager(Me.components)
+        Me.MetroStyleExtender1 = New MetroFramework.Components.MetroStyleExtender(Me.components)
         Me.HelpTooltip = New MetroFramework.Components.MetroToolTip()
-        Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
-        Me.MetroProgressSpinner1 = New MetroFramework.Controls.MetroProgressSpinner()
-        Me.MetroLabel9 = New MetroFramework.Controls.MetroLabel()
+        Me.unpackerBGworker = New System.ComponentModel.BackgroundWorker()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MetroTabControl1.SuspendLayout()
-        Me.MetroTabPage1.SuspendLayout()
-        Me.MetroTabPage2.SuspendLayout()
+        Me.startPage.SuspendLayout()
+        Me.shaderInstallerPage.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.MetroTabPage4.SuspendLayout()
+        Me.shaderDownloaderPage.SuspendLayout()
+        Me.settingsPage.SuspendLayout()
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MetroTabPage5.SuspendLayout()
         Me.SuspendLayout()
         '
         'MetroLabel1
@@ -78,32 +73,31 @@ Partial Class Form1
         '
         'MetroTabControl1
         '
-        Me.MetroTabControl1.Controls.Add(Me.MetroTabPage1)
-        Me.MetroTabControl1.Controls.Add(Me.MetroTabPage2)
-        Me.MetroTabControl1.Controls.Add(Me.MetroTabPage3)
-        Me.MetroTabControl1.Controls.Add(Me.MetroTabPage4)
-        Me.MetroTabControl1.Controls.Add(Me.MetroTabPage5)
+        Me.MetroTabControl1.Controls.Add(Me.startPage)
+        Me.MetroTabControl1.Controls.Add(Me.shaderDownloaderPage)
+        Me.MetroTabControl1.Controls.Add(Me.shaderInstallerPage)
+        Me.MetroTabControl1.Controls.Add(Me.settingsPage)
         Me.MetroTabControl1.Location = New System.Drawing.Point(23, 63)
         Me.MetroTabControl1.Name = "MetroTabControl1"
-        Me.MetroTabControl1.SelectedIndex = 3
+        Me.MetroTabControl1.SelectedIndex = 1
         Me.MetroTabControl1.Size = New System.Drawing.Size(716, 344)
         Me.MetroTabControl1.Style = MetroFramework.MetroColorStyle.White
         Me.MetroTabControl1.TabIndex = 1
         Me.MetroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.MetroTabControl1.UseStyleColors = True
         '
-        'MetroTabPage1
+        'startPage
         '
-        Me.MetroTabPage1.BackColor = System.Drawing.Color.Transparent
-        Me.MetroTabPage1.Controls.Add(Me.Label3)
-        Me.MetroTabPage1.Controls.Add(Me.Label4)
-        Me.MetroTabPage1.HorizontalScrollbarBarColor = True
-        Me.MetroTabPage1.Location = New System.Drawing.Point(4, 35)
-        Me.MetroTabPage1.Name = "MetroTabPage1"
-        Me.MetroTabPage1.Size = New System.Drawing.Size(708, 305)
-        Me.MetroTabPage1.TabIndex = 0
-        Me.MetroTabPage1.Text = "Start"
-        Me.MetroTabPage1.VerticalScrollbarBarColor = True
+        Me.startPage.BackColor = System.Drawing.Color.Transparent
+        Me.startPage.Controls.Add(Me.Label3)
+        Me.startPage.Controls.Add(Me.Label4)
+        Me.startPage.HorizontalScrollbarBarColor = True
+        Me.startPage.Location = New System.Drawing.Point(4, 35)
+        Me.startPage.Name = "startPage"
+        Me.startPage.Size = New System.Drawing.Size(708, 305)
+        Me.startPage.TabIndex = 0
+        Me.startPage.Text = "Start"
+        Me.startPage.VerticalScrollbarBarColor = True
         '
         'Label3
         '
@@ -127,17 +121,19 @@ Partial Class Form1
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Minecraft Shader Installer && Configurator"
         '
-        'MetroTabPage2
+        'shaderInstallerPage
         '
-        Me.MetroTabPage2.Controls.Add(Me.Panel2)
-        Me.MetroTabPage2.Controls.Add(Me.Panel1)
-        Me.MetroTabPage2.HorizontalScrollbarSize = 0
-        Me.MetroTabPage2.Location = New System.Drawing.Point(4, 35)
-        Me.MetroTabPage2.Name = "MetroTabPage2"
-        Me.MetroTabPage2.Size = New System.Drawing.Size(708, 305)
-        Me.MetroTabPage2.TabIndex = 1
-        Me.MetroTabPage2.Text = "Shader Installer"
-        Me.MetroTabPage2.VerticalScrollbarSize = 0
+        Me.shaderInstallerPage.Controls.Add(Me.Panel2)
+        Me.shaderInstallerPage.Controls.Add(Me.Panel1)
+        Me.shaderInstallerPage.HorizontalScrollbarBarColor = True
+        Me.shaderInstallerPage.HorizontalScrollbarSize = 0
+        Me.shaderInstallerPage.Location = New System.Drawing.Point(4, 35)
+        Me.shaderInstallerPage.Name = "shaderInstallerPage"
+        Me.shaderInstallerPage.Size = New System.Drawing.Size(708, 305)
+        Me.shaderInstallerPage.TabIndex = 1
+        Me.shaderInstallerPage.Text = "Shader Installer"
+        Me.shaderInstallerPage.VerticalScrollbarBarColor = True
+        Me.shaderInstallerPage.VerticalScrollbarSize = 0
         '
         'Panel2
         '
@@ -166,7 +162,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI Light", 15.75!, System.Drawing.FontStyle.Bold)
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Location = New System.Drawing.Point(63, 164)
         Me.Button2.Name = "Button2"
@@ -232,96 +228,59 @@ Partial Class Form1
         Me.MetroLabel4.TabIndex = 6
         Me.MetroLabel4.Text = "Shader Installer"
         '
-        'MetroTabPage3
+        'shaderDownloaderPage
         '
-        Me.MetroTabPage3.HorizontalScrollbarBarColor = True
-        Me.MetroTabPage3.Location = New System.Drawing.Point(4, 35)
-        Me.MetroTabPage3.Name = "MetroTabPage3"
-        Me.MetroTabPage3.Size = New System.Drawing.Size(708, 305)
-        Me.MetroTabPage3.TabIndex = 2
-        Me.MetroTabPage3.Text = "Shader Downloader"
-        Me.MetroTabPage3.VerticalScrollbarBarColor = True
+        Me.shaderDownloaderPage.BackColor = System.Drawing.Color.White
+        Me.shaderDownloaderPage.Controls.Add(Me.Label1)
+        Me.shaderDownloaderPage.ForeColor = System.Drawing.Color.Black
+        Me.shaderDownloaderPage.HorizontalScrollbarBarColor = True
+        Me.shaderDownloaderPage.Location = New System.Drawing.Point(4, 35)
+        Me.shaderDownloaderPage.Name = "shaderDownloaderPage"
+        Me.shaderDownloaderPage.Size = New System.Drawing.Size(708, 305)
+        Me.shaderDownloaderPage.TabIndex = 2
+        Me.shaderDownloaderPage.Text = "Shader Downloader"
+        Me.shaderDownloaderPage.VerticalScrollbarBarColor = True
         '
-        'MetroTabPage4
+        'settingsPage
         '
-        Me.MetroTabPage4.BackColor = System.Drawing.Color.Transparent
-        Me.MetroTabPage4.Controls.Add(Me.MetroLabel9)
-        Me.MetroTabPage4.Controls.Add(Me.MetroProgressSpinner1)
-        Me.MetroTabPage4.Controls.Add(Me.MetroButton1)
-        Me.MetroTabPage4.Controls.Add(Me.Label1)
-        Me.MetroTabPage4.Controls.Add(Me.MetroLabel3)
-        Me.MetroTabPage4.Controls.Add(Me.MetroLabel2)
-        Me.MetroTabPage4.ForeColor = System.Drawing.Color.Black
-        Me.MetroTabPage4.HorizontalScrollbarBarColor = True
-        Me.MetroTabPage4.Location = New System.Drawing.Point(4, 35)
-        Me.MetroTabPage4.Name = "MetroTabPage4"
-        Me.MetroTabPage4.Size = New System.Drawing.Size(708, 305)
-        Me.MetroTabPage4.TabIndex = 3
-        Me.MetroTabPage4.Text = "Is your PC okay for Shaders?"
-        Me.MetroTabPage4.VerticalScrollbarBarColor = True
+        Me.settingsPage.Controls.Add(Me.MetroButton2)
+        Me.settingsPage.Controls.Add(Me.MetroTextBox1)
+        Me.settingsPage.Controls.Add(Me.MetroLabel8)
+        Me.settingsPage.Controls.Add(Me.MetroLabel6)
+        Me.settingsPage.Controls.Add(Me.MetroLabel7)
+        Me.settingsPage.HorizontalScrollbarBarColor = True
+        Me.settingsPage.Location = New System.Drawing.Point(4, 35)
+        Me.settingsPage.Name = "settingsPage"
+        Me.settingsPage.Size = New System.Drawing.Size(708, 305)
+        Me.settingsPage.TabIndex = 4
+        Me.settingsPage.Text = "Settings"
+        Me.settingsPage.VerticalScrollbarBarColor = True
         '
-        'MetroButton1
+        'MetroButton2
         '
-        Me.MetroButton1.Highlight = True
-        Me.MetroButton1.Location = New System.Drawing.Point(251, 168)
-        Me.MetroButton1.Name = "MetroButton1"
-        Me.MetroButton1.Size = New System.Drawing.Size(207, 42)
-        Me.MetroButton1.Style = MetroFramework.MetroColorStyle.White
-        Me.MetroButton1.TabIndex = 5
-        Me.MetroButton1.Text = "Click here to check your PC!"
-        Me.MetroButton1.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.MetroButton2.Location = New System.Drawing.Point(321, 82)
+        Me.MetroButton2.Name = "MetroButton2"
+        Me.MetroButton2.Size = New System.Drawing.Size(184, 23)
+        Me.MetroButton2.TabIndex = 8
+        Me.MetroButton2.Text = "Select Minecraft Installation Path"
         '
-        'Label1
+        'MetroTextBox1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semilight", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(71, 87)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(567, 74)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Click the button above this text to check if your" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Computer fits the requirements" &
-    " to run Shaders!"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.MetroTextBox1.Location = New System.Drawing.Point(7, 82)
+        Me.MetroTextBox1.Name = "MetroTextBox1"
+        Me.MetroTextBox1.Size = New System.Drawing.Size(308, 23)
+        Me.MetroTextBox1.TabIndex = 7
+        Me.MetroTextBox1.Text = "Path needs to be selected!"
         '
-        'MetroLabel3
+        'MetroLabel8
         '
-        Me.MetroLabel3.AutoSize = True
-        Me.MetroLabel3.Location = New System.Drawing.Point(3, 27)
-        Me.MetroLabel3.Name = "MetroLabel3"
-        Me.MetroLabel3.Size = New System.Drawing.Size(409, 19)
-        Me.MetroLabel3.TabIndex = 3
-        Me.MetroLabel3.Text = "This will check if your Computer fits the requirements to run Shaders."
-        '
-        'MetroLabel2
-        '
-        Me.MetroLabel2.AutoSize = True
-        Me.MetroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall
-        Me.MetroLabel2.Location = New System.Drawing.Point(3, 3)
-        Me.MetroLabel2.Name = "MetroLabel2"
-        Me.MetroLabel2.Size = New System.Drawing.Size(227, 25)
-        Me.MetroLabel2.TabIndex = 2
-        Me.MetroLabel2.Text = "Is your PC okay for Shaders?"
-        '
-        'MetroStyleManager1
-        '
-        Me.MetroStyleManager1.Owner = Nothing
-        '
-        'MetroTabPage5
-        '
-        Me.MetroTabPage5.Controls.Add(Me.MetroButton2)
-        Me.MetroTabPage5.Controls.Add(Me.MetroTextBox1)
-        Me.MetroTabPage5.Controls.Add(Me.MetroLabel8)
-        Me.MetroTabPage5.Controls.Add(Me.MetroLabel6)
-        Me.MetroTabPage5.Controls.Add(Me.MetroLabel7)
-        Me.MetroTabPage5.HorizontalScrollbarBarColor = True
-        Me.MetroTabPage5.Location = New System.Drawing.Point(4, 35)
-        Me.MetroTabPage5.Name = "MetroTabPage5"
-        Me.MetroTabPage5.Size = New System.Drawing.Size(708, 305)
-        Me.MetroTabPage5.TabIndex = 4
-        Me.MetroTabPage5.Text = "Settings"
-        Me.MetroTabPage5.VerticalScrollbarBarColor = True
+        Me.MetroLabel8.AutoSize = True
+        Me.MetroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular
+        Me.MetroLabel8.Location = New System.Drawing.Point(3, 60)
+        Me.MetroLabel8.Name = "MetroLabel8"
+        Me.MetroLabel8.Size = New System.Drawing.Size(99, 19)
+        Me.MetroLabel8.TabIndex = 6
+        Me.MetroLabel8.Text = "Minecraft Path"
         '
         'MetroLabel6
         '
@@ -342,53 +301,19 @@ Partial Class Form1
         Me.MetroLabel7.TabIndex = 4
         Me.MetroLabel7.Text = "Settings"
         '
-        'MetroLabel8
+        'MetroStyleManager1
         '
-        Me.MetroLabel8.AutoSize = True
-        Me.MetroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular
-        Me.MetroLabel8.Location = New System.Drawing.Point(3, 60)
-        Me.MetroLabel8.Name = "MetroLabel8"
-        Me.MetroLabel8.Size = New System.Drawing.Size(99, 19)
-        Me.MetroLabel8.TabIndex = 6
-        Me.MetroLabel8.Text = "Minecraft Path"
+        Me.MetroStyleManager1.Owner = Nothing
         '
-        'MetroTextBox1
+        'Label1
         '
-        Me.MetroTextBox1.Location = New System.Drawing.Point(7, 82)
-        Me.MetroTextBox1.Name = "MetroTextBox1"
-        Me.MetroTextBox1.Size = New System.Drawing.Size(308, 23)
-        Me.MetroTextBox1.TabIndex = 7
-        Me.MetroTextBox1.Text = "Path needs to be selected!"
-        '
-        'MetroButton2
-        '
-        Me.MetroButton2.Location = New System.Drawing.Point(321, 82)
-        Me.MetroButton2.Name = "MetroButton2"
-        Me.MetroButton2.Size = New System.Drawing.Size(184, 23)
-        Me.MetroButton2.TabIndex = 8
-        Me.MetroButton2.Text = "Select Minecraft Installation Path"
-        '
-        'MetroProgressSpinner1
-        '
-        Me.MetroProgressSpinner1.Location = New System.Drawing.Point(332, 130)
-        Me.MetroProgressSpinner1.Maximum = 100
-        Me.MetroProgressSpinner1.Name = "MetroProgressSpinner1"
-        Me.MetroProgressSpinner1.Size = New System.Drawing.Size(45, 45)
-        Me.MetroProgressSpinner1.Speed = 2.0!
-        Me.MetroProgressSpinner1.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroProgressSpinner1.TabIndex = 6
-        Me.MetroProgressSpinner1.Value = 35
-        Me.MetroProgressSpinner1.Visible = False
-        '
-        'MetroLabel9
-        '
-        Me.MetroLabel9.AutoSize = True
-        Me.MetroLabel9.Location = New System.Drawing.Point(131, 178)
-        Me.MetroLabel9.Name = "MetroLabel9"
-        Me.MetroLabel9.Size = New System.Drawing.Size(446, 19)
-        Me.MetroLabel9.TabIndex = 7
-        Me.MetroLabel9.Text = "Please wait while MSIC gets the Hardware Informations of your Computer..."
-        Me.MetroLabel9.Visible = False
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.Label1.Location = New System.Drawing.Point(285, 140)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(138, 24)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Coming soon..."
         '
         'Form1
         '
@@ -406,18 +331,18 @@ Partial Class Form1
         Me.Text = "Craftbyte MSIC"
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.MetroTabControl1.ResumeLayout(False)
-        Me.MetroTabPage1.ResumeLayout(False)
-        Me.MetroTabPage1.PerformLayout()
-        Me.MetroTabPage2.ResumeLayout(False)
+        Me.startPage.ResumeLayout(False)
+        Me.startPage.PerformLayout()
+        Me.shaderInstallerPage.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.MetroTabPage4.ResumeLayout(False)
-        Me.MetroTabPage4.PerformLayout()
+        Me.shaderDownloaderPage.ResumeLayout(False)
+        Me.shaderDownloaderPage.PerformLayout()
+        Me.settingsPage.ResumeLayout(False)
+        Me.settingsPage.PerformLayout()
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MetroTabPage5.ResumeLayout(False)
-        Me.MetroTabPage5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -425,16 +350,11 @@ Partial Class Form1
 
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroTabControl1 As MetroFramework.Controls.MetroTabControl
-    Friend WithEvents MetroTabPage1 As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents startPage As MetroFramework.Controls.MetroTabPage
     Friend WithEvents MetroStyleManager1 As MetroFramework.Components.MetroStyleManager
     Friend WithEvents MetroStyleExtender1 As MetroFramework.Components.MetroStyleExtender
-    Friend WithEvents MetroTabPage2 As MetroFramework.Controls.MetroTabPage
-    Friend WithEvents MetroTabPage3 As MetroFramework.Controls.MetroTabPage
-    Friend WithEvents MetroTabPage4 As MetroFramework.Controls.MetroTabPage
-    Friend WithEvents MetroButton1 As MetroFramework.Controls.MetroButton
-    Friend WithEvents Label1 As Label
-    Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
-    Friend WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents shaderInstallerPage As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents shaderDownloaderPage As MetroFramework.Controls.MetroTabPage
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Button2 As Button
@@ -445,13 +365,13 @@ Partial Class Form1
     Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents MetroTabPage5 As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents settingsPage As MetroFramework.Controls.MetroTabPage
     Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroTextBox1 As MetroFramework.Controls.MetroTextBox
     Friend WithEvents MetroLabel8 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel6 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroLabel7 As MetroFramework.Controls.MetroLabel
     Friend WithEvents HelpTooltip As MetroFramework.Components.MetroToolTip
-    Friend WithEvents MetroLabel9 As MetroFramework.Controls.MetroLabel
-    Friend WithEvents MetroProgressSpinner1 As MetroFramework.Controls.MetroProgressSpinner
+    Friend WithEvents unpackerBGworker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label1 As Label
 End Class
